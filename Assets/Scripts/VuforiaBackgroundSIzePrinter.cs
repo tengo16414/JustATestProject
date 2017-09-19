@@ -12,10 +12,10 @@ public class VuforiaBackgroundSizePrinter : MonoBehaviour
 
     public float Multiplier;
     private Vector3 tempScaleVec;
-    //private bool activator = false;
+    private bool activator = false;
     private void Start()
     {
-        InvokeRepeating("ChangeBackgroundScaleUsingFrustumHeight", 2f, 0.5f);
+        //InvokeRepeating("ChangeBackgroundScaleUsingFrustumHeight", 2f, 0.5f);
     }
     void Update()
     {
@@ -23,10 +23,10 @@ public class VuforiaBackgroundSizePrinter : MonoBehaviour
         {
             //ChangeDistance();
             //ChangeBackgroundScale();
-          //  activator = !activator;
+            activator = !activator;
         }
-        //if (activator)
-            //ChangeBackgroundScaleUsingFrustumHeight();
+        if (activator)
+            ChangeBackgroundScaleUsingFrustumHeight();
 
 
         string str = string.Format(
