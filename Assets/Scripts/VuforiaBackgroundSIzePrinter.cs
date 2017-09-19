@@ -30,17 +30,18 @@ public class VuforiaBackgroundSizePrinter : MonoBehaviour
 
 
         string str = string.Format(
-            "{0}\nX: {1} Y: {2} Z: {3}\n{4}\n{5}\n{6}\n{7}",
-            //background.NumDivisions.ToString(),
-            Multiplier.ToString(),
+            "X: {0} Y: {1} Z: {2}\nL:{3},\nG:{4}\nD:{5}",
             background.transform.localScale.x.ToString(),
             background.transform.localScale.y.ToString(),
             background.transform.localScale.z.ToString(),
             background.transform.localPosition.ToString(),
-            background.transform.parent.localPosition.ToString(),
-            background.transform.parent.parent.localPosition.ToString(),
+            background.transform.position.ToString(),
             (2.0f * background.transform.position.z * Mathf.Tan(Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad)).ToString()
             );
+            //background.NumDivisions.ToString(),
+            //Multiplier.ToString(),
+            //background.transform.parent.localPosition.ToString(), background.transform.parent.position.ToString(),
+            //background.transform.parent.parent.localPosition.ToString(), background.transform.parent.parent.position.ToString(),
         if (background.transform.parent.parent.parent != null)
         {
             str = background.transform.parent.parent.parent.gameObject.name;
