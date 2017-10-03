@@ -13,40 +13,64 @@ public class VuforiaBackgroundSizePrinter : MonoBehaviour
     public float Multiplier;
     private Vector3 tempScaleVec;
     private bool activator = false;
+
+    public Camera vuforiaCamera;
+    public Camera MyCamera;
+
     private void Start()
     {
         //InvokeRepeating("ChangeBackgroundScaleUsingFrustumHeight", 2f, 0.5f);
+        activator = false;
+        targetText.text = "Hello Bitch!!!";
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //ChangeDistance();
-            //ChangeBackgroundScale();
-            activator = !activator;
-        }
-        if (activator)
-            ChangeBackgroundScaleUsingFrustumHeight();
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    //ChangeDistance();
+        //    //ChangeBackgroundScale();
+        //    activator = !activator;
+        //}
+        //if (activator)
+        //    ChangeBackgroundScaleUsingFrustumHeight();
+
+        Debug.Log(vuforiaCamera.targetTexture.name);
+        Debug.Log(MyCamera.targetTexture.name);
+
+        //string str="undefined";// = string.Format("{0}",background.transform.parent.GetComponent<Camera>().targetTexture.ToString());
+        //targetText.text = str;
+        //Debug.Log("Before If statement");
+        //if (background.transform.parent.GetComponent<Camera>().targetTexture == null)
+        //{
+        //    Debug.Log("True");
+        //    str = "bitch";
+        //}
+        //else
+        //{
+
+        //    str = background.transform.parent.GetComponent<Camera>().targetTexture.name;
+        //    Debug.Log("false\n"+str);
+        //}
+        //targetText.text = str;
 
 
-        string str = string.Format(
-            "X: {0} Y: {1} Z: {2}\nL:{3},\nG:{4}\nD:{5}",
-            background.transform.localScale.x.ToString(),
-            background.transform.localScale.y.ToString(),
-            background.transform.localScale.z.ToString(),
-            background.transform.localPosition.ToString(),
-            background.transform.position.ToString(),
-            (2.0f * background.transform.position.z * Mathf.Tan(Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad)).ToString()
-            );
-            //background.NumDivisions.ToString(),
-            //Multiplier.ToString(),
-            //background.transform.parent.localPosition.ToString(), background.transform.parent.position.ToString(),
-            //background.transform.parent.parent.localPosition.ToString(), background.transform.parent.parent.position.ToString(),
-        if (background.transform.parent.parent.parent != null)
-        {
-            str = background.transform.parent.parent.parent.gameObject.name;
-        }
-        targetText.text = str;
+        //string str = string.Format(
+        //    "X: {0} Y: {1} Z: {2}\nL:{3},\nG:{4}\nD:{5}",
+        //    background.transform.localScale.x.ToString(),
+        //    background.transform.localScale.y.ToString(),
+        //    background.transform.localScale.z.ToString(),
+        //    background.transform.localPosition.ToString(),
+        //    background.transform.position.ToString(),
+        //    (2.0f * background.transform.position.z * Mathf.Tan(Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad)).ToString()
+        //);
+        //background.NumDivisions.ToString(),
+        //Multiplier.ToString(),
+        //background.transform.parent.localPosition.ToString(), background.transform.parent.position.ToString(),
+        //background.transform.parent.parent.localPosition.ToString(), background.transform.parent.parent.position.ToString(),
+        //if (background.transform.parent.parent.parent != null)
+        //{
+        //    str = background.transform.parent.parent.parent.gameObject.name;
+        //}
     }
     public void ChangeBackgroundScale()
     {
